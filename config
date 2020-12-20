@@ -1,12 +1,5 @@
-#  ____ _____ 
-# |  _ \_   _|  Derek Taylor (DistroTube)
-# | | | || |    http://www.youtube.com/c/DistroTube
-# | |_| || |    http://www.gitlab.com/dwt1/ 
-# |____/ |_|  	
-#      
-# A customized config for i3-gaps window manager (http://www.i3wm.org) 
-# Based off of the config for Manjaro's i3 Community Distro.    
-# Modified by Derek Taylor (http://www.gitlab.com/dwt1/ )
+# A customized config for i3-gaps window manager (http://www.i3wm.org)
+# Based off of the dt .dotfiles config.   (http://www.gitlab.com/dwt1/ )
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
@@ -16,7 +9,7 @@ set $mod Mod4
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
+new_window pixel 2
 new_float normal
 
 # Hide borders
@@ -44,49 +37,18 @@ bindsym $mod+Shift+c kill
 # start program launcher
 bindsym $mod+Shift+Return exec --no-startup-id rofi -show run
 
-# launch categorized menu
-bindsym $mod+' exec --no-startup-id morc_menu
-
-# Apps Launched with <SUPER> + <KEYPAD 1-9>
-#bindsym $mod+KP_End exec $myTerm -e lynx -cfg=~/.lynx.cfg -lss=~/.lynx.lss http://www.distrowatch.com
-#bindsym $mod+KP_Down exec $myTerm -e sh ./scripts/googler-script.sh
-#bindsym $mod+KP_Page_Down exec $myTerm -e newsboat
-#bindsym $mod+KP_Left exec $myTerm -e rtv
-#bindsym $mod+KP_Begin exec $myTerm -e neomutt
-#bindsym $mod+KP_Right exec $myTerm -e twitch-curses
-#bindsym $mod+KP_Home exec $myTerm -e sh ./scripts/haxor-news.sh
-#bindsym $mod+KP_Up exec $myTerm -e toot curses
-#bindsym $mod+KP_Page_Up exec $myTerm -e sh ./scripts/tig-script.sh
-
-# Apps Launched with <SUPER> + <SHIFT> + <KEYPAD 1-9>
-bindsym $mod+Shift+KP_1 exec $myTerm -e vifm
-#bindsym $mod+Shift+KP_2 exec $myTerm -e joplin
-#bindsym $mod+Shift+KP_3 exec $myTerm -e cmus
-#bindsym $mod+Shift+KP_4 exec $myTerm -e irssi
-bindsym $mod+Shift+KP_5 exec $myTerm -e rtorrent
-bindsym $mod+Shift+KP_6 exec $myTerm -e youtube-viewer
-#bindsym $mod+Shift+KP_7 exec $myTerm -e ncpamixer
-#bindsym $mod+Shift+KP_8 exec $myTerm -e calcurse
+# the i3 config in vim
 bindsym $mod+Shift+KP_9 exec $myTerm -e vim /home/meidix/.config/i3/config
 
-# Apps Launched with <SUPER> + <CTRL> + <KEYPAD 1-9>
-bindsym $mod+Ctrl+KP_End exec $myTerm -e htop
-#bindsym $mod+Ctrl+KP_Down exec $myTerm -e gtop
-#bindsym $mod+Ctrl+KP_Page_Down exec $myTerm -e nmon
-#bindsym $mod+Ctrl+KP_Left exec $myTerm -e glances
-#bindsym $mod+Ctrl+KP_Begin exec $myTerm -e s-tui
-#bindsym $mod+Ctrl+KP_Right exec $myTerm -e httping -KY --draw-phase localhost
-#bindsym $mod+Ctrl+KP_Home exec $myTerm -e cmatrix -C cyan
-#bindsym $mod+Ctrl+KP_Up exec $myTerm -e pianobar
-#bindsym $mod+Ctrl+KP_Page_Up exec $myTerm -e wopr report.xml
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
+#exec --no-startup-id volumeicon
+#exec --no-startup-id plasma-pa
 #exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
+exec --no-startup-id pa-applet
 
 ################################################################################################
 
@@ -94,26 +56,19 @@ exec --no-startup-id volumeicon
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
-# Start Applications
-#bindsym $mod+Ctrl+b exec $myTerm -e 'bmenu'
-#bindsym $mod+F1 exec firefox-developer-edition
-#bindsym $mod+F2 exec obs
-#bindsym $mod+F3 exec kdenlive
-#bindsym $mod+F5 exec $myTerm -e 'mocp'
-#bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+# screenshot shortcuts
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Ctrl+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+#bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+#bindsym $mod+h focus left
+#bindsym $mod+j focus down
+#bindsym $mod+k focus up
+#bindsym $mod+l focus right
 
 # alternatively, you can use the arrow keys:
 bindsym $mod+Left focus left
@@ -135,13 +90,13 @@ bindsym $mod+Shift+Right move right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+z split h;exec notify-send 'tile horizontally'
+bindsym $mod+h split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
-bindsym $mod+q split toggle
+#bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -149,7 +104,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -164,16 +119,10 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
 
 #navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
+bindsym Mod1+Ctrl+Right workspace next
+bindsym Mod1+Ctrl+Left workspace prev
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -224,17 +173,14 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Pcmanfm"] $ws3
 
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
 #for_window [class="Lightdm-gtk-greeter-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
 #for_window [class="Manjaro-hello"] floating enable
 #for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
@@ -243,14 +189,18 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="(?i)virtualbox"] fullscreen enable 
 for_window [class="Xfburn"] floating enable
 for_window [class="timeshift"] floating enabled sticky
+for_window [title="Deluge"] floating enabled sticky
 for_window [class="nautilus"] floating enabled sticky
+for_window [class="dolphin"] floating enabled sticky
+for_window [title="Gwenview"] floating enabled sticky
+for_window [title="Kate"] floating enabled sticky
+for_window [class="Telegram"] floating enabled sticky
+for_window [class="deluge"] floating enabled sticky
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -260,9 +210,6 @@ bindsym $mod+Ctrl+r reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
@@ -287,38 +234,34 @@ mode "resize" {
         # Originally set to jkl;.
         # These bindings trigger as soon as you enter the resize mode
         # Pressing left will shrink the window’s width.
+        bindsym Left resize shrink width 4 px or 4 ppt
         # Pressing right will grow the window’s width.
+        bindsym Right resize grow width 4 px or 4 ppt
         # Pressing up will shrink the window’s height.
+        bindsym Down resize shrink height 4 px or 4 ppt
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 4 px or 4 ppt
-        bindsym j resize grow height 4 px or 4 ppt
-        bindsym k resize shrink height 4 px or 4 ppt
-        bindsym l resize grow width 4 px or 4 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Up resize grow height 4 px or 4 ppt
 
         # exit resize mode: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 
-# Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
-
 # Autostart applications
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; picom # --config /home/dt/.config/picom/picom.conf
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
+exec --no-startup-id nitrogen --restore; sleep 1; picom
 exec --no-startup-id numlockx off
 exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
+#exec --no-startup-id xfce4-power-manager
+exec --no-startup-id cbatticon
 # exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+
+# keyboard layout switching
+exec_always "setxkbmap -model pc105 -layout us,ir -variant ,, -option grp:alt_shift_toggle"
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -362,12 +305,12 @@ set_from_resource $term_color15    color15
   client.background       #2B2C2B
 
 #############################
-### settings for i3-gaps: ###
+### setting6
 #############################
 
 # Set inner/outer gaps
-gaps inner 10
-gaps outer -4
+gaps inner 4
+gaps outer 6
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -423,30 +366,17 @@ mode "$mode_gaps_outer" {
 }
 
 set $mode_launch launch: [A]pplications
-bindsym $mod+Shift+a mode "$mode_launch"
+bindsym $mod+Shift+a  mode $mode_launch
 
 mode "$mode_launch" {
   bindsym f exec --no-startup-id firefox-developer-edition; mode "default"
   bindsym g exec --no-startup-id google-chrome-stable; mode "default"
   bindsym b exec --no-startup-id brave; mode "default"
   bindsym t exec --no-startup-id sudo timeshift-gtk; mode "default"
+  bindsym e exec --no-startup-id emacs; mode "default"
+  bindsym Shift+f  exec "dolphin $HOME &" ; mode "default"
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
 
-
-#bar {
-  #status_command i3status
-  #position top
-  #font Source Sans Pro
-  #binding_mode_indicator  yes
-  #colors {
-    #background #2F3A54
-    #statusline #FFF
-    #separator #1F2127
-    #focused_workspace #399739 #399739 #FFFFFF
-    #inactive_workspace  #FF5733 #FF5733 #FFFFFF
-    #binding_mode  #FFC300 #FFC300 #000000
-  #}
-#}
